@@ -1,9 +1,18 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        String[] suit = {"Diamonds", "Hearts", "Clubs", "Spades"};
-        String[] order = {"Ace", "2", "3","4","5","6","7","8","9","10","Jack","Queen","King"};
+        ArrayList<String> user = new ArrayList<>();
+       //test to see if the whole deck is printed out
+        Deck deck = new Deck();
+        System.out.println(deck.getDeck());
+
+        //sets up the User's hand
+        User userCards = new User();
+        user.add(userCards.getInitialCards());
+        System.out.println(user);
+
+
 
 
 
