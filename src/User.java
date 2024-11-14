@@ -19,6 +19,14 @@ public class User {
             }
         }
     }
+    public void drawCard(Deck deck){
+        String card = deck.draw();
+        if(card != null)
+        {
+            hand.add(card);
+            score += CardValues.getValue(card);
+        }
+    }
 
     public int getScore(){
         return score;
@@ -42,7 +50,7 @@ public class User {
     }
 
     public String toString() {
-        return hand.toString() + "User's score: " + score;
+        return hand.toString() + " User's score: " + score;
     }
 
 

@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class Deck {
 
     public String drawInitialCards;
@@ -15,7 +17,8 @@ public class Deck {
                 deckOfCards.add(order[i] + " of " + suit[j]);
             }
         }
-
+        //This allows the deck to be randomized, so it wouldn't have a rigid order.
+        Collections.shuffle(deckOfCards);
     }
 
     public ArrayList<String> getDeck() {
@@ -34,5 +37,6 @@ public class Deck {
     {
         return deckOfCards.size();
     }
+
 }
 
