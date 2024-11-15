@@ -32,11 +32,5 @@ public class Deck {
         }
         return null;
     }
-
-    public int getSizeDeck()
-    {
-        return deckOfCards.size();
-    }
-
 }
 
