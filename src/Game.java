@@ -18,7 +18,7 @@ public class Game {
         Deck deck = new Deck();
         User user = new User();
         Dealer dealer = new Dealer();
-        boolean gameOver = false;
+        boolean gameOver = true;
 
         user.drawInitialCards(deck);
         dealer.drawInitialCards(deck);
@@ -30,7 +30,7 @@ public class Game {
         System.out.println("Dealer cards: " + dealer.getHand());
 
         System.out.println("Dealer cards: Blank, " +  dealer.getHand().get(1));
-        while (true){
+        while (gameOver){
             System.out.println("Do you want to hit or stand? (h or s)");
             String input = s.nextLine().toLowerCase();
             if (input.equals("h"))
@@ -57,9 +57,14 @@ public class Game {
 
             System.out.println("Dealer cards: " + dealer.getHand());
             dealer.rules(deck);
+
+            if (user.getScore() == 21){
+                System.out.println("wuegrfibdkuhw4rht");
+            }
+
             if (dealer.over21()){
                 System.out.println("The dealer card value went over 21!");
-                }
+            }
 
             else{
                 System.out.println("Dealer's final cards: " + dealer.getHand());
@@ -79,7 +84,8 @@ public class Game {
                 System.out.println("User final cards: " +  user);
                 System.out.println("It is a tie!");
             }
-            s.close();
+
         }
+        s.close();
     }
 }
