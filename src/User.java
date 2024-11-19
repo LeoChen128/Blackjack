@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * This is the User Class, and it represents the person using the console. This user would have a hand (of cards) and a score tracker.
+ */
 public class User {
     private ArrayList<String> hand;
     private int score;
