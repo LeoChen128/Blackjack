@@ -32,70 +32,71 @@ public class Game {
 
         System.out.println("Dealer cards: Blank, " +  dealer.getHand().get(1));
         while (game){
+
             if (user.getScore() == 21){
                 if (dealer.getScore() == 21){
-                    System.out.println("");
+                    System.out.println("The dealer has tied with the Player!");
+                }
+                else{
+                    System.out.println("You won!");
+                }
+                game = false;
+                userTurn = false;
+            }
+
+            if (userTurn) {
+                System.out.println("Do you want to hit or stand? (h or s)");
+                String input = s.nextLine().toLowerCase();
+
+                if (input.equals("h")) {
+                    user.drawCard(deck);
+                    System.out.println("User cards: " + user);
+
+                    if (user.over21()) {
+                        System.out.println("Dealer cards: " + dealer.getHand());
+                        System.out.println("The total value of your cards have reached over 21!\nYou Lost!");
+                        userTurn = false;
+                        game = false;
+                    }
+                }
+
+                else if (input.equals("s")) {
+                    System.out.println("You decided to stand! Now lets see if that was the right choice...");
+                    userTurn = false;
+                }
+
+                else {
+                    System.out.println("That move does not exist. Please use h for hit and s for stand.");
+                    continue;
                 }
             }
-//            System.out.println("Do you want to hit or stand? (h or s)");
-//            String input = s.nextLine().toLowerCase();
-//            if (input.equals("h"))
-//            {
-//                user.drawCard(deck);
-//                System.out.println("User cards: " +  user);
-//
-//                if (user.over21())
-//                    {
-//                        System.out.println("Dealer cards: " + dealer.getHand());
-//                        System.out.println("The total value of your cards have reached over 21!\nYou Lost!");
-//                        return;
-//                    }
-//            }
-//
-//            if (input.equals("s")) {
-//                System.out.println("You decided to stand! Now lets see if that was the right choice...");
-//            }
-//
-//            else{
-//                System.out.println("That move does not exist. Please use h for hit and s for stand.");
-//                continue;
-//            }
-//
-//            System.out.println("Dealer cards: " + dealer.getHand());
-//            dealer.rules(deck);
-//
-//            if (user.getScore() == 21){
-//                System.out.println("Congrats you got a value of 21!");
-//                game = false;
-//            }
-//
-//            if (dealer.over21()){
-//                System.out.println("The dealer card value went over 21!");
-//            }
-//
-//            else{
-//                System.out.println("Dealer's final cards: " + dealer.getHand());
-//                System.out.println("Dealer's final score: " + dealer.getScore());
-//            }
-//
-//            if (user.getScore() > dealer.getScore()){
-//                System.out.println("User final cards: " +  user);
-//                System.out.println("You won!");
-//                game = false;
-//            }
-//
-//            else if (user.getScore() < dealer.getScore()){
-//                System.out.println("User final cards: " +  user);
-//                System.out.println("You lost!");
-//                game = false;
-//            }
-//
-//            else{
-//                System.out.println("User final cards: " +  user);
-//                System.out.println("It is a tie!");
-//                game = false;
-//            }
+            if(dealer.getScore() < 21){
+                System.out.println("Dealer cards: " + dealer.getHand());
+                dealer.rules(deck);
+                if (dealer.over21()){
+                    System.out.println("The dealer card value went over 21!");
+                }
+                else{
+                    if (user.getScore() > dealer.getScore()){
+                        System.out.println("User final cards: " +  user);
+                        System.out.println("You won!");
+                    }
 
+                    else if (user.getScore() < dealer.getScore()){
+                        System.out.println("User final cards: " +  user);
+                        System.out.println("You lost!");
+                    }
+
+                    else{
+                        System.out.println("User final cards: " +  user);
+                        System.out.println("It is a tie!");
+                    }
+                }
+                System.out.println("Dealer's final cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
+                System.out.println("User's final cards: " + user.getHand() + " User's score: " + user.getScore());
+                game = false;
+            }
         }
+        s.close();
     }
 }

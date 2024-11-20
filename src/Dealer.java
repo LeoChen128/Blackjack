@@ -46,5 +46,7 @@ public class Dealer {
         {
             deck.draw();
         }
+        System.out.println(1);
+
     }
 }
