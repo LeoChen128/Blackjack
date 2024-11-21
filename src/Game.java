@@ -26,15 +26,13 @@ public class Game {
 
         System.out.println("User cards: " +  user);
 
-        //user cannot see the one of the cards of the dealer
-        //test
-        System.out.println("Dealer cards: " + dealer.getHand());
-
         System.out.println("Dealer cards: Blank, " +  dealer.getHand().get(1));
+
         while (game){
 
             if (user.getScore() == 21){
                 if (dealer.getScore() == 21){
+                    System.out.println("Dealer cards: " + dealer.getHand());
                     System.out.println("The dealer has tied with the Player!");
                 }
                 else{
@@ -70,30 +68,34 @@ public class Game {
                     continue;
                 }
             }
+
             if(dealer.getScore() < 21){
-                System.out.println("Dealer cards: " + dealer.getHand());
+                System.out.println("Dealer cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
                 dealer.rules(deck);
                 if (dealer.over21()){
                     System.out.println("The dealer card value went over 21!");
+                    System.out.println("Dealer has lost!");
                 }
                 else{
                     if (user.getScore() > dealer.getScore()){
-                        System.out.println("User final cards: " +  user);
+                        System.out.println("Dealer's final cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
+                        System.out.println("User's final cards: " + user.getHand() + " User's score: " + user.getScore());
                         System.out.println("You won!");
                     }
 
                     else if (user.getScore() < dealer.getScore()){
-                        System.out.println("User final cards: " +  user);
+                        System.out.println("Dealer's final cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
+                        System.out.println("User's final cards: " + user.getHand() + " User's score: " + user.getScore());
                         System.out.println("You lost!");
                     }
 
                     else{
-                        System.out.println("User final cards: " +  user);
+                        System.out.println("Dealer's final cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
+                        System.out.println("User's final cards: " + user.getHand() + " User's score: " + user.getScore());
                         System.out.println("It is a tie!");
                     }
                 }
-                System.out.println("Dealer's final cards: " + dealer.getHand() + " Dealer's score: " + dealer.getScore());
-                System.out.println("User's final cards: " + user.getHand() + " User's score: " + user.getScore());
+
                 game = false;
             }
         }

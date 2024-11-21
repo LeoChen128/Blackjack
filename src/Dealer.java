@@ -46,16 +46,11 @@ public class Dealer {
         }
     }
 
-    public void startOver(){
-        // ".clear" removes all elements of the array "hand"
-        hand.clear();
-    }
 
     public void rules(Deck deck){
         while (score < 17)
         {
             drawCard(deck);
-            deck.draw();
         }
 
     }

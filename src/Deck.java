@@ -4,7 +4,6 @@ import java.util.Collections;
 
 public class Deck {
 
-    public String drawInitialCards;
     private ArrayList<String> deckOfCards;
 
     public Deck() {
@@ -19,11 +18,6 @@ public class Deck {
         }
         //This allows the deck to be randomized, so it wouldn't have a rigid order.
         Collections.shuffle(deckOfCards);
-    }
-
-    public ArrayList<String> getDeck() {
-
-        return deckOfCards;
     }
 
     public String draw() {
