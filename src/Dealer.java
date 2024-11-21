@@ -25,6 +25,7 @@ public class Dealer {
     }
 
     public ArrayList<String> getHand() {
+
         return hand;
     }
 
@@ -36,6 +37,15 @@ public class Dealer {
         return false;
     }
 
+    public void drawCard(Deck deck){
+        String card = deck.draw();
+        if(card != null)
+        {
+            hand.add(card);
+            score += CardValues.getValue(card);
+        }
+    }
+
     public void startOver(){
         // ".clear" removes all elements of the array "hand"
         hand.clear();
@@ -44,9 +54,9 @@ public class Dealer {
     public void rules(Deck deck){
         while (score < 17)
         {
+            drawCard(deck);
             deck.draw();
         }
-        System.out.println(1);
 
     }
 }

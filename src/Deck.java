@@ -22,6 +22,7 @@ public class Deck {
     }
 
     public ArrayList<String> getDeck() {
+
         return deckOfCards;
     }
 

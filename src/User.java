@@ -47,12 +47,8 @@ public class User {
         return false;
     }
 
-    public void startOver(){
-        // ".clear" removes all elements of the array "hand"
-        hand.clear();
-    }
-
     public String toString() {
+
         return hand.toString() + " User's score: " + score;
     }
 
