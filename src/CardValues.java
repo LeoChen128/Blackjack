@@ -4,7 +4,7 @@ public class CardValues {
         String special = card.substring(0, space);
         if (special.equals("Ace"))
         {
-            return 11;
+            return 1;
         }
 
         else if (special.equals("Jack")|| special.equals("Queen")|| special.equals("King"))
