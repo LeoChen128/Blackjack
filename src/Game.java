@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Game {
 
     public static void main(String[]args){
-        //Introduction of the Game
         System.out.println("WELCOME TO BLACKJACK\n" +
                 "------------------------------------------------------\n" +
                 "In this game of blackjack, your overall goal is to obtain the card value(score) of 21. \n" +
